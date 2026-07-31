@@ -2,123 +2,136 @@
 <html lang="pt-PT">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Francisco | 1.º Aniversário</title>
 
     <meta name="description"
-        content="Hoje celebramos o primeiro ano do Francisco. Obrigado por fazeres parte deste dia tão especial.">
+        content="Hoje celebramos o primeiro ano do Francisco.">
 
-    <meta name="theme-color" content="#F4F9FF">
-
-    <link rel="icon" href="assets/favicon.png">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <!-- Fundo -->
+    <!-- Background -->
+
     <div class="background">
 
-        <img src="assets/cloud.svg" class="cloud cloud-left" alt="">
-        <img src="assets/cloud.svg" class="cloud cloud-right" alt="">
+        <img src="assets/cloud-left.svg" class="cloud left" alt="">
+        <img src="assets/cloud-right.svg" class="cloud right" alt="">
 
-        <img src="assets/balloon-blue.svg" class="balloon balloon-left" alt="">
-        <img src="assets/balloon-beige.svg" class="balloon balloon-right" alt="">
+        <img src="assets/balloon-blue.svg" class="balloon left" alt="">
+        <img src="assets/balloon-beige.svg" class="balloon right" alt="">
 
         <img src="assets/stars.svg" class="stars" alt="">
 
     </div>
 
-    <!-- Conteúdo -->
+    <!-- Main -->
 
-    <main class="container">
+    <main class="wrapper">
 
-        <section class="card">
+        <section class="hero">
 
-            <img src="assets/goose.svg"
+            <img
+                src="assets/goose.png"
                 class="goose"
-                alt="Ganso">
+                alt="Francisco">
 
             <h1>Francisco</h1>
 
-            <span class="subtitle">
-                1.º ANIVERSÁRIO
-            </span>
+            <h2>1.º ANIVERSÁRIO</h2>
+
+            <div class="heart">
+
+                ❤
+
+            </div>
 
             <p class="intro">
+
                 Hoje celebramos o primeiro ano do Francisco.
+
             </p>
 
             <p class="message">
-                <strong>
-                    Obrigado por fazeres parte deste dia tão especial
-                    e por nos ajudares a guardar estas memórias para sempre.
-                </strong>
+
+                Obrigado por nos ajudares a guardar estas memórias
+                para sempre.
+
             </p>
 
-            <div class="divider"></div>
+        </section>
 
-            <section class="memories">
+        <!-- Gallery Card -->
 
-                <h2>
-                    📸 As nossas memórias
-                </h2>
-
-                <p>
-                    Cada fotografia conta um pequeno pedaço desta aventura.
-                </p>
-
-                <p>
-                    Obrigado por fazeres parte dela.
-                </p>
-
-            </section>
+        <section class="gallery-card">
 
             <button id="openGallery">
 
-                <span class="icon">📸</span>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 16 16">
+
+                    <path d="M10.5 3l1.5 2H14a1 1 0 011 1v6a2 2 0 01-2 2H3a2 2 0 01-2-2V6a1 1 0 011-1h2L5.5 3h5z"/>
+
+                    <circle cx="8" cy="9" r="2.6"/>
+
+                </svg>
 
                 <span>
+
                     Ver Fotografias
+
                 </span>
 
             </button>
 
         </section>
 
+        <!-- Footer -->
+
         <footer>
 
-            <p class="signature">
+            <div class="footer-heart">
+
+                ❤
+
+            </div>
+
+            <p>
 
                 Com carinho,
 
-                <br><br>
-
-                <strong>Diana, Tiago e Francisco 🤍</strong>
-
             </p>
 
-            <p class="quote">
+            <strong>
+
+                Diana, Tiago e Francisco 🤍
+
+            </strong>
+
+            <blockquote>
 
                 "As melhores memórias são aquelas que vivemos juntos."
 
-            </p>
+            </blockquote>
 
         </footer>
 
     </main>
-
-    <!-- Canvas para Confettis -->
 
     <canvas id="confetti"></canvas>
 
