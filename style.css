@@ -1,9 +1,10 @@
-/* ==========================================================
-   FRANCISCO | 1.º ANIVERSÁRIO
-   style.css
-========================================================== */
+/* ==================================================
+   RESET
+================================================== */
 
-*{
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -11,21 +12,19 @@
 
 :root{
 
-    --background-top:#F4F9FF;
-    --background-bottom:#EAF5FF;
+    --bg:#F8F6F2;
+    --card:#ffffff;
 
-    --card:#FFFFFF;
+    --blue:#355C7D;
+    --blue-light:#5E81A2;
 
-    --title:#355C7D;
+    --gold:#D9B96B;
 
-    --text:#61707B;
+    --text:#6B7280;
 
-    --button:#4E7AA8;
-    --button-hover:#41698F;
+    --shadow:0 20px 45px rgba(0,0,0,.08);
 
-    --gold:#E8C96B;
-
-    --shadow:0 18px 45px rgba(0,0,0,.08);
+    --radius:32px;
 
 }
 
@@ -38,24 +37,19 @@ html{
 body{
 
     font-family:"Inter",sans-serif;
-
-    background:linear-gradient(
-        180deg,
-        var(--background-top),
-        var(--background-bottom)
-    );
-
-    min-height:100vh;
-
-    overflow-x:hidden;
+    background:var(--bg);
 
     color:var(--text);
 
+    overflow-x:hidden;
+
+    min-height:100vh;
+
 }
 
-/* ===========================
-        BACKGROUND
-=========================== */
+/* ==================================================
+   BACKGROUND
+================================================== */
 
 .background{
 
@@ -71,95 +65,101 @@ body{
 
 }
 
-/* Clouds */
+.background::before{
 
-.cloud{
-
-    position:absolute;
-
-    opacity:.45;
-
-    width:260px;
-
-    animation:cloud 55s linear infinite;
-
-}
-
-.cloud-left{
-
-    left:-60px;
-
-    top:90px;
-
-}
-
-.cloud-right{
-
-    right:-80px;
-
-    top:190px;
-
-    animation-duration:70s;
-
-}
-
-/* Balloons */
-
-.balloon{
-
-    position:absolute;
-
-    width:110px;
-
-    animation:float 5s ease-in-out infinite;
-
-}
-
-.balloon-left{
-
-    left:70px;
-
-    top:40px;
-
-}
-
-.balloon-right{
-
-    right:70px;
-
-    top:45px;
-
-    animation-delay:2s;
-
-}
-
-/* Stars */
-
-.stars{
+    content:"";
 
     position:absolute;
 
     inset:0;
 
-    width:100%;
+    background:
 
-    height:100%;
-
-    opacity:.30;
+    radial-gradient(circle at 10% 15%, rgba(217,185,107,.25) 2px, transparent 3px),
+    radial-gradient(circle at 28% 12%, rgba(217,185,107,.18) 1.5px, transparent 2px),
+    radial-gradient(circle at 52% 22%, rgba(217,185,107,.20) 2px, transparent 3px),
+    radial-gradient(circle at 75% 16%, rgba(217,185,107,.22) 2px, transparent 3px),
+    radial-gradient(circle at 90% 26%, rgba(217,185,107,.18) 1.5px, transparent 2px),
+    radial-gradient(circle at 20% 80%, rgba(217,185,107,.18) 2px, transparent 3px),
+    radial-gradient(circle at 80% 82%, rgba(217,185,107,.22) 2px, transparent 3px);
 
 }
 
-/* ===========================
-        CONTENT
-=========================== */
+/* ==================================================
+   CLOUDS
+================================================== */
 
-.container{
+.cloud{
+
+    position:absolute;
+
+    width:220px;
+
+    opacity:.70;
+
+    animation:cloudFloat 14s ease-in-out infinite;
+
+}
+
+.cloud-left{
+
+    left:-40px;
+
+    top:70px;
+
+}
+
+.cloud-right{
+
+    right:-40px;
+
+    top:120px;
+
+    animation-delay:3s;
+
+}
+
+/* ==================================================
+   BALLOONS
+================================================== */
+
+.balloon{
+
+    position:absolute;
+
+    width:105px;
+
+    animation:balloon 5s ease-in-out infinite;
+
+}
+
+.balloon-left{
+
+    left:90px;
+
+    top:45px;
+
+}
+
+.balloon-right{
+
+    right:90px;
+
+    top:45px;
+
+    animation-delay:2.5s;
+
+}
+
+/* ==================================================
+   WRAPPER
+================================================== */
+
+.wrapper{
 
     position:relative;
 
-    z-index:10;
-
-    min-height:100vh;
+    z-index:2;
 
     display:flex;
 
@@ -169,41 +169,47 @@ body{
 
     align-items:center;
 
+    min-height:100vh;
+
     padding:70px 20px;
 
 }
 
-/* Card */
+/* ==================================================
+   CARD
+================================================== */
 
 .card{
 
+    width:min(680px,92vw);
+
     background:var(--card);
 
-    width:min(700px,92vw);
+    border-radius:var(--radius);
 
-    padding:70px;
-
-    border-radius:32px;
-
-    box-shadow:var(--shadow);
+    padding:70px 60px;
 
     text-align:center;
 
-    animation:fadeUp 1s ease;
+    box-shadow:var(--shadow);
 
 }
 
-/* Goose */
+/* ==================================================
+   GOOSE
+================================================== */
 
 .goose{
 
-    width:165px;
+    width:170px;
 
-    margin-bottom:28px;
+    margin-bottom:30px;
 
 }
 
-/* Title */
+/* ==================================================
+   TITLES
+================================================== */
 
 h1{
 
@@ -211,47 +217,47 @@ h1{
 
     font-size:4rem;
 
-    color:var(--title);
-
-    font-weight:700;
+    color:var(--blue);
 
     line-height:1;
 
 }
 
-/* Subtitle */
-
 .subtitle{
 
-    display:block;
+    margin-top:12px;
 
-    margin-top:10px;
+    letter-spacing:5px;
 
-    letter-spacing:4px;
+    color:var(--gold);
 
-    font-size:.9rem;
+    font-size:.95rem;
 
     font-weight:600;
 
-    color:#8F9DA6;
+}
+
+.heart{
+
+    margin:25px auto 35px;
+
+    color:#D9A8B4;
+
+    font-size:20px;
 
 }
 
-/* Paragraphs */
+/* ==================================================
+   TEXT
+================================================== */
 
-.intro{
+.intro,
+.message,
+.gallery p{
 
-    margin-top:35px;
+    max-width:520px;
 
-    font-size:1.15rem;
-
-    line-height:1.9;
-
-}
-
-.message{
-
-    margin-top:18px;
+    margin:auto;
 
     line-height:1.9;
 
@@ -259,7 +265,11 @@ h1{
 
 }
 
-/* Divider */
+.message{
+
+    margin-top:18px;
+
+}
 
 .divider{
 
@@ -267,57 +277,46 @@ h1{
 
     height:2px;
 
-    margin:45px auto;
+    background:#EEF1F4;
 
-    background:#E7EDF4;
+    margin:45px auto;
 
 }
 
-/* Memories */
-
-.memories h2{
+.gallery h2{
 
     font-family:"Cormorant Garamond",serif;
 
-    color:var(--title);
+    color:var(--blue);
 
     font-size:2rem;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 
 }
+/* ==================================================
+   BUTTON
+================================================== */
 
-.memories p{
+#openGallery{
 
-    margin-top:12px;
-
-    line-height:1.8;
-
-}
-
-/* ===========================
-        BUTTON
-=========================== */
-
-button{
-
-    margin-top:45px;
+    margin-top:38px;
 
     border:none;
 
-    cursor:pointer;
+    background:var(--blue);
 
-    background:var(--button);
-
-    color:white;
-
-    border-radius:18px;
+    color:#fff;
 
     padding:18px 38px;
+
+    border-radius:999px;
 
     font-size:1rem;
 
     font-weight:600;
+
+    cursor:pointer;
 
     display:inline-flex;
 
@@ -325,69 +324,100 @@ button{
 
     gap:12px;
 
-    transition:.35s;
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
 
     box-shadow:
-
-        0 10px 24px rgba(78,122,168,.28);
+        0 12px 25px rgba(53,92,125,.25);
 
 }
 
-button:hover{
+#openGallery:hover{
 
-    background:var(--button-hover);
+    background:var(--blue-light);
 
-    transform:
-
-        translateY(-2px)
-
-        scale(1.02);
+    transform:translateY(-3px);
 
     box-shadow:
-
-        0 16px 34px rgba(78,122,168,.34);
-
-}
-
-button:active{
-
-    transform:scale(.97);
+        0 18px 35px rgba(53,92,125,.28);
 
 }
 
-/* ===========================
-        FOOTER
-=========================== */
+#openGallery:active{
+
+    transform:scale(.96);
+
+}
+
+.camera{
+
+    font-size:1.2rem;
+
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
 
 footer{
 
+    text-align:center;
+
     margin-top:45px;
 
-    text-align:center;
+}
+
+.footer-divider{
+
+    width:70px;
+
+    height:2px;
+
+    background:#E9ECEF;
+
+    margin:0 auto 28px;
 
 }
 
 .signature{
 
-    line-height:2;
+    font-style:italic;
 
-    color:#6E7C86;
+    color:#8C939A;
+
+    margin-bottom:10px;
+
+}
+
+footer h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    color:var(--blue);
+
+    font-size:2rem;
+
+    font-weight:600;
+
+    margin-bottom:18px;
 
 }
 
 .quote{
 
-    margin-top:28px;
+    color:#9AA0A6;
 
     font-style:italic;
 
-    opacity:.75;
+    font-size:.95rem;
 
 }
 
-/* ===========================
-        CONFETTI
-=========================== */
+/* ==================================================
+   CONFETTI
+================================================== */
 
 #confetti{
 
@@ -395,15 +425,63 @@ footer{
 
     inset:0;
 
+    width:100%;
+
+    height:100%;
+
     pointer-events:none;
 
-    z-index:999;
+    z-index:9999;
 
 }
 
-/* ===========================
-        ANIMATIONS
-=========================== */
+/* ==================================================
+   ANIMATIONS
+================================================== */
+
+@keyframes balloon{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes cloudFloat{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    50%{
+
+        transform:translateX(18px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
 
 @keyframes fadeUp{
 
@@ -411,7 +489,7 @@ footer{
 
         opacity:0;
 
-        transform:translateY(35px);
+        transform:translateY(30px);
 
     }
 
@@ -425,47 +503,15 @@ footer{
 
 }
 
-@keyframes float{
+.card{
 
-    0%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-12px);
-
-    }
-
-    100%{
-
-        transform:translateY(0);
-
-    }
+    animation:fadeUp .8s ease;
 
 }
 
-@keyframes cloud{
-
-    from{
-
-        transform:translateX(0);
-
-    }
-
-    to{
-
-        transform:translateX(70px);
-
-    }
-
-}
-
-/* ===========================
-        MOBILE
-=========================== */
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media (max-width:768px){
 
@@ -473,13 +519,13 @@ footer{
 
         padding:45px 28px;
 
-        border-radius:26px;
+        border-radius:24px;
 
     }
 
     .goose{
 
-        width:130px;
+        width:125px;
 
     }
 
@@ -489,29 +535,81 @@ footer{
 
     }
 
-    .memories h2{
+    .gallery h2{
 
         font-size:1.7rem;
 
     }
 
-    button{
+    .intro,
+    .message,
+    .gallery p{
+
+        font-size:1rem;
+
+    }
+
+    #openGallery{
 
         width:100%;
 
         justify-content:center;
 
+        padding:17px 22px;
+
     }
 
     .balloon{
 
-        width:85px;
+        width:70px;
+
+    }
+
+    .balloon-left{
+
+        left:18px;
+
+    }
+
+    .balloon-right{
+
+        right:18px;
 
     }
 
     .cloud{
 
-        width:180px;
+        width:150px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    h1{
+
+        font-size:2.5rem;
+
+    }
+
+    .subtitle{
+
+        font-size:.8rem;
+
+        letter-spacing:3px;
+
+    }
+
+    footer h3{
+
+        font-size:1.6rem;
+
+    }
+
+    .quote{
+
+        font-size:.85rem;
 
     }
 
