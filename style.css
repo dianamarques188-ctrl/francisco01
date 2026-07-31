@@ -1,0 +1,518 @@
+/* ==========================================================
+   FRANCISCO | 1.º ANIVERSÁRIO
+   style.css
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --background-top:#F4F9FF;
+    --background-bottom:#EAF5FF;
+
+    --card:#FFFFFF;
+
+    --title:#355C7D;
+
+    --text:#61707B;
+
+    --button:#4E7AA8;
+    --button-hover:#41698F;
+
+    --gold:#E8C96B;
+
+    --shadow:0 18px 45px rgba(0,0,0,.08);
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:linear-gradient(
+        180deg,
+        var(--background-top),
+        var(--background-bottom)
+    );
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    color:var(--text);
+
+}
+
+/* ===========================
+        BACKGROUND
+=========================== */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+/* Clouds */
+
+.cloud{
+
+    position:absolute;
+
+    opacity:.45;
+
+    width:260px;
+
+    animation:cloud 55s linear infinite;
+
+}
+
+.cloud-left{
+
+    left:-60px;
+
+    top:90px;
+
+}
+
+.cloud-right{
+
+    right:-80px;
+
+    top:190px;
+
+    animation-duration:70s;
+
+}
+
+/* Balloons */
+
+.balloon{
+
+    position:absolute;
+
+    width:110px;
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+.balloon-left{
+
+    left:70px;
+
+    top:40px;
+
+}
+
+.balloon-right{
+
+    right:70px;
+
+    top:45px;
+
+    animation-delay:2s;
+
+}
+
+/* Stars */
+
+.stars{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    opacity:.30;
+
+}
+
+/* ===========================
+        CONTENT
+=========================== */
+
+.container{
+
+    position:relative;
+
+    z-index:10;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:70px 20px;
+
+}
+
+/* Card */
+
+.card{
+
+    background:var(--card);
+
+    width:min(700px,92vw);
+
+    padding:70px;
+
+    border-radius:32px;
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+
+    animation:fadeUp 1s ease;
+
+}
+
+/* Goose */
+
+.goose{
+
+    width:165px;
+
+    margin-bottom:28px;
+
+}
+
+/* Title */
+
+h1{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:4rem;
+
+    color:var(--title);
+
+    font-weight:700;
+
+    line-height:1;
+
+}
+
+/* Subtitle */
+
+.subtitle{
+
+    display:block;
+
+    margin-top:10px;
+
+    letter-spacing:4px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:#8F9DA6;
+
+}
+
+/* Paragraphs */
+
+.intro{
+
+    margin-top:35px;
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+}
+
+.message{
+
+    margin-top:18px;
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}
+
+/* Divider */
+
+.divider{
+
+    width:90px;
+
+    height:2px;
+
+    margin:45px auto;
+
+    background:#E7EDF4;
+
+}
+
+/* Memories */
+
+.memories h2{
+
+    font-family:"Cormorant Garamond",serif;
+
+    color:var(--title);
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+.memories p{
+
+    margin-top:12px;
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+        BUTTON
+=========================== */
+
+button{
+
+    margin-top:45px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:var(--button);
+
+    color:white;
+
+    border-radius:18px;
+
+    padding:18px 38px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    transition:.35s;
+
+    box-shadow:
+
+        0 10px 24px rgba(78,122,168,.28);
+
+}
+
+button:hover{
+
+    background:var(--button-hover);
+
+    transform:
+
+        translateY(-2px)
+
+        scale(1.02);
+
+    box-shadow:
+
+        0 16px 34px rgba(78,122,168,.34);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ===========================
+        FOOTER
+=========================== */
+
+footer{
+
+    margin-top:45px;
+
+    text-align:center;
+
+}
+
+.signature{
+
+    line-height:2;
+
+    color:#6E7C86;
+
+}
+
+.quote{
+
+    margin-top:28px;
+
+    font-style:italic;
+
+    opacity:.75;
+
+}
+
+/* ===========================
+        CONFETTI
+=========================== */
+
+#confetti{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:999;
+
+}
+
+/* ===========================
+        ANIMATIONS
+=========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes cloud{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(70px);
+
+    }
+
+}
+
+/* ===========================
+        MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+    .card{
+
+        padding:45px 28px;
+
+        border-radius:26px;
+
+    }
+
+    .goose{
+
+        width:130px;
+
+    }
+
+    h1{
+
+        font-size:3rem;
+
+    }
+
+    .memories h2{
+
+        font-size:1.7rem;
+
+    }
+
+    button{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .balloon{
+
+        width:85px;
+
+    }
+
+    .cloud{
+
+        width:180px;
+
+    }
+
+}
